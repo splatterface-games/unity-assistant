@@ -1,0 +1,51 @@
+# .NET build artifacts
+**/bin/
+**/obj/
+
+# IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Unity artifacts
+Library/
+Temp/
+Logs/
+UserSettings/
+*.csproj
+*.sln
+*.pidb
+
+# Service specific
+service/**/bin/
+service/**/obj/
+
+# Test artifacts
+TestResults/
+*.trx
+
+# NuGet (ignore other packages/ contents, but keep our Unity package)
+/packages/*
+!/packages/com.splatterfacegames.assistant/
+
+# Nested Unity test project (its own git repo / dev harness, not part of this repo)
+TestProject/
+
+# Debug screenshots
+Screenshot*.png
+
+# Misc
+nul
+
+# Local planning and working documents
+/*.md
+!/README.md
+!/CLAUDE-TOOLS-WORK.md
+!/LICENSE.md
+!/NOTICE.md
+!/COPYING.md

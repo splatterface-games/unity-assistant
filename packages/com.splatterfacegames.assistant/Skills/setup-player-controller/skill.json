@@ -1,0 +1,61 @@
+{
+  "id": "setup-player-controller",
+  "name": "Setup Player Controller",
+  "description": "Creates a complete player controller setup with movement, camera, and input handling for common game types.",
+  "category": "Gameplay",
+  "author": "Splatter",
+  "version": "1.0.0",
+  "tags": ["player", "controller", "movement", "input", "camera"],
+  "parameters": [
+    {
+      "name": "controllerType",
+      "type": "string",
+      "description": "Type of controller: 'fps', 'tps', 'topdown', or 'platformer'",
+      "required": true
+    },
+    {
+      "name": "playerName",
+      "type": "string",
+      "description": "Name for the player GameObject",
+      "default": "Player"
+    },
+    {
+      "name": "moveSpeed",
+      "type": "number",
+      "description": "Movement speed in units per second",
+      "default": 5.0
+    },
+    {
+      "name": "useNewInputSystem",
+      "type": "boolean",
+      "description": "Use the new Input System package instead of legacy Input",
+      "default": true
+    },
+    {
+      "name": "includeCinemachine",
+      "type": "boolean",
+      "description": "Setup Cinemachine virtual camera for smooth camera following",
+      "default": true
+    }
+  ],
+  "instructions": "Set up a complete player controller based on the specified controller type:\n\n1. Create the Player GameObject hierarchy:\n   - Player (root with CharacterController or Rigidbody)\n   - PlayerModel (child for visual representation)\n   - CameraTarget (child for camera following)\n\n2. Based on controllerType:\n   - 'fps': First-person controller with mouse look, WASD movement\n   - 'tps': Third-person controller with orbit camera, WASD movement\n   - 'topdown': Top-down controller with click-to-move or WASD\n   - 'platformer': Side-scroller with jump, run, WASD/Arrow keys\n\n3. Create necessary scripts:\n   - PlayerController.cs with movement logic\n   - PlayerInput.cs for input handling\n   - CameraController.cs for camera behavior\n\n4. If useNewInputSystem:\n   - Create InputActions asset\n   - Configure action maps for the controller type\n   - Generate C# wrapper class\n\n5. If includeCinemachine:\n   - Create appropriate virtual camera\n   - Configure follow and look-at targets\n   - Set up camera collision if TPS\n\n6. Configure physics:\n   - Add appropriate colliders\n   - Set up layers and collision matrix",
+  "examples": [
+    {
+      "input": "Create an FPS controller with Cinemachine",
+      "output": "Created Player with FPS controller, mouse look, Cinemachine POV camera"
+    },
+    {
+      "input": "Create a third-person controller without new input system",
+      "output": "Created Player with TPS controller using legacy Input, orbit camera"
+    },
+    {
+      "input": "Create a platformer controller at speed 8",
+      "output": "Created Player with 2D platformer controller, jump mechanics, speed 8"
+    }
+  ],
+  "resources": {
+    "fps-template": "templates/fps-controller.cs.txt",
+    "tps-template": "templates/tps-controller.cs.txt",
+    "input-actions": "templates/PlayerInputActions.inputactions"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "com.splatterfacegames.assistant",
+  "version": "0.1.0",
+  "displayName": "Splatterface Games Assistant",
+  "description": "Multi-provider AI assistant for Unity with code editing, asset generation, and agent workflows.",
+  "unity": "2022.3",
+  "documentationUrl": "https://github.com/splatterfacegames/unity-assistant",
+  "license": "MIT",
+  "licensesUrl": "https://github.com/splatterfacegames/unity-assistant/blob/master/LICENSE",
+  "keywords": [
+    "ai",
+    "assistant",
+    "agent",
+    "code-generation",
+    "asset-generation"
+  ],
+  "author": {
+    "name": "Splatterface Games",
+    "url": "https://www.splatterfacegames.com/"
+  },
+  "type": "tool",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  }
+}

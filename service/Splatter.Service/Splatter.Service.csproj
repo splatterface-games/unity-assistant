@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Splatter.Service</RootNamespace>
+    <AssemblyName>Splatter.Service</AssemblyName>
+    <Version>0.1.0</Version>
+    <Description>Splatterface Games Assistant - Local Service</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Core dependencies -->
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+
+    <!-- WebSocket/HTTP -->
+    <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
+
+    <!-- JSON -->
+    <PackageReference Include="System.Text.Json" Version="9.0.5" />
+
+    <!-- SQLite -->
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
+
+    <!-- Provider SDKs -->
+    <PackageReference Include="OpenAI" Version="2.0.0" />
+    <PackageReference Include="Anthropic.SDK" Version="3.0.0" />
+    <PackageReference Include="Google.Cloud.AIPlatform.V1" Version="3.0.0" />
+
+    <!-- Credential storage -->
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Shared protocol schema lives in the Unity package so both sides compile
+         ONE set of types (no duplication/drift). The service links them here. -->
+    <Compile Include="..\..\packages\com.splatterfacegames.assistant\Runtime\Contracts\*.cs" Link="Protocol\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>
